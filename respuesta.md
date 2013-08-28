@@ -1,0 +1,3 @@
+Por qué el autor pone en duda la existencia de la disciplina Ingeniería de software?
+.Para el autor no habrian mayores diferencias entre un ingeniero de software y un programador, y para algunos la ingenieria de software se inventó para "llamar mas la atención" y para otros ni siquiera existe tal disciplina, tener conocimiento sobre software no es suficiente para desarrollar productos.
+También afirma que no puede existir una ingeniería sin teoria y que esta teoria se refiere a varios supuestos sobre fisica y matematica, y se plantea si realmente es necesario tener tantos conocimientos de matematica para poder desarrollar software.

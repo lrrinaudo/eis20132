@@ -1,0 +1,13 @@
+Layers vs Tiers:
+
+Existe una confusion respecto al termino aplicacion n-capas cuando se lleva al idioma español. El problema principal es que en ingles se manejan 2 capas a nivel de arquitectura:
+
+.Aplicaciones n-Tier
+.Aplicaciones n-Layer
+
+Ambos términos significan “de n capas", pero existe una gran diferencia respecto al significado de cada uno de ellos. Una arquitectura n-Tier se refiere a la distribución física de las capas, es decir donde corre el código y los procesos. Una arquitectura n-Layer se refiere a la distribución lógica de las capas, es decir, como esta estructurado el código.
+
+Por ejemplo en una aplicación n-Tier (una aplicación web) que contiene 3 capas. una capa seria la PC, en una segunda capa estaria el servidor web y en una tercer capa podria estar el servidor de base de datos.
+
+Por otra parte, una arquitectura n-Layer define simplemente como se organiza el codigo. Normalmente incluye una capa de presentación, una capa de negocios, una capa de acceso a datos, una capa de entidades de negocio y una capa de datos – repositorio de datos. El hecho de que se dividan las capas para organizar el código, no significa que las capas obligatoriamente deban corren en diferentes máquinas o que deben estrictamente correr en una sola máquina o en un único proceso.
+En una arquitectura n-layer las capas solamente interactúan con sus capas adyacentes lo que permite abstraer funcionalidades de las capas superiores e inferiores. Por ejemplo, la capa de presentación no se da cuenta que tipo de base de datos o que repositorio de datos se utiliza por que esta solamente se comunica con la capa de negocios, y el repositorio de datos no se da cuenta en donde se esta utilizando o desplegando la información ya que este interactúa con la capa de acceso a datos.

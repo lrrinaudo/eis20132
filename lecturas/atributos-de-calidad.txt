@@ -1,0 +1,24 @@
+Atributos de calidad
+
+.Seguridad:
+
+Seguridad es la capacidad de un sistema de reducir las chances de acciones accidentales o maliciosas por fuera del uso comun afectando al sistema y prevenir la perdida o robo de informacion.
+Aumentando la seguridad tambien se incrementa la confiabilidad en el sistema al reducir las chances de un ataque satisfactorio. Las principales caracteristicas de un sistema seguro son:
+.Autenticacion
+.Encriptacion
+.Auditoria
+.Logueo
+
+A continuacion se nombran las principales caracteristicas para la seguridad de un sistema:
+
+Para que un sistema sea seguro primero debe contar con encriptacion de datos. Parece algo obvio pero hay muchisimos sistemas en los que, por ejemplo, no estan encriptadas las claves de los usuarios registrados, de esta manera si alguien con malas intenciones logra romper la seguridad y acceder a la base de datos, podria obtener las claves de las personas. Hay varios algoritmos de encriptacion, igualmente hay que tener mucho cuidado con cual a elegir ya que hay varios que han sido vulnerados, el mas conocido es MD5, pero no es el mas seguro, hoy en dia el mas seguro es SHA2. La unica forma de "romper" estos algoritmos es a travez de la fuerza bruta, esto quiere decir ir probando con claves de a una hasta que alguna sea (tambien se pueden cargar diccionarios para intentar que se logre mas facilmente), por eso mientras la una clave sea mas larga, con caracteres especiales, minusculas, mayusculas y numeros es mas dificil para alguien que intenta obtener los datos lo logre.
+
+Daño causado por inyeccion de codigo SQL, es el primero en la lista que hace OWASP (open web application security project) cada cierto tiempo. Este proceso consta de escribir codigo SQL en los inputs del sistema. Supongamos que un usuario se loguea a un sistema, y realiza la siguiente consulta: "SELECT * FROM empleados WHERE email = 'email' AND password = 'password'", uno podria agregar otra condicion "AND 1=1" y de esta manera nos traeriamos todos los datos sin importar el mail y el password de la persona ya que 1=1 siempre es TRUE. Cualquier codigo SQL es valido si el sistema es vulnerable a este tipo de ataques, se podrian hacer cosas mas violentas como insertar un usuario a una tabla y borrar la base de datos. Para evitar esto la mejor manera es escapando los caracteres especiales ingresados por los usuarios, otra forma es restringir los tipos de caracteres a ingresar, por ejemplo no permitir que se ingresen " o ; o simbolos =.
+
+Para aplicaciones web exclusivamente, otro ataque muy utilizado es el llamado "cross-site scripting" (segundo en OWASP) que es igual a "SQL inyection" pero inyectando codigo javascript. Escribiendo codigo malicioso en los inputs se puede desde generar ventanas de "alert()" hasta el robo de cookies. Esta vulerabilidad puede estar presente en 2 formas:
+Directa (tambien llamada persistente): consiste en embeber codigo HTML peligroso en sitios que lo permitan, incluyendo asi etiquetas como <script> o <iframe>.
+Indirecta (tambien llamada reflejada): consiste en modificar valores que la aplicacion web utiliza para pasar variables entre dos paginas sin usar sesiones y sucede cuando hay un mensaje o una ruta en la URL del navegador, en una cookie, o en cualquier otra cabecera HTTP.
+Para evitar este tipo de ataque, al igual que en la inyeccion SQL, todas las entradas proporcionadas por el usuario deben ser validadas antes de ser utilizadas.
+
+Por ultimo para aplicaciones web se pueden usar certificados digitales SSL(Secure Socket Layer, capa de conexion segura). Es un protocolo criptografico empleado para realizar conexiones seguras entre un cliente y un servidor, funciona de la siguiente manera: un cliente y el servidor entran en un proceso de negociacion conocido como handshake (apreton de manos). Luego la conexion segura es establecida codificando todo lo que se envia hasta que la conexion se cierre. El certificado digital mas conocido es el de Norton Symantec (antes Verisign) aunque tambien el mas caro, igualmente hay certificados digitales gratuitos, el problema es que es muy comun que el navegador lo rechace. 
+
